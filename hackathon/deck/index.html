@@ -484,6 +484,212 @@ pre code {
   .lightning-cols { grid-template-columns: 1fr; }
   .title-slide h1 { font-size: 2em; }
 }
+
+
+/* Anatomy of a Skill - visual layout */
+.anatomy-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-top: 0.8em;
+}
+
+.anatomy-left, .anatomy-right {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.anatomy-folder {
+  background: rgba(0, 212, 255, 0.06);
+  border: 1px solid rgba(0, 212, 255, 0.15);
+  border-radius: 10px;
+  padding: 14px 16px;
+}
+
+.anatomy-folder-title {
+  font-weight: 700;
+  font-size: 0.85em;
+  color: var(--cyan);
+  margin-bottom: 8px;
+}
+
+.anatomy-tree {
+  font-size: 0.65em !important;
+  line-height: 1.5 !important;
+  padding: 8px 12px !important;
+  margin: 0 !important;
+}
+
+.anatomy-frontmatter {
+  background: rgba(255, 140, 0, 0.06);
+  border: 1px solid rgba(255, 140, 0, 0.15);
+  border-radius: 10px;
+  padding: 14px 16px;
+}
+
+.anatomy-section-label {
+  font-weight: 700;
+  font-size: 0.8em;
+  color: var(--orange);
+  margin-bottom: 4px;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.anatomy-code-sm {
+  font-size: 0.6em !important;
+  line-height: 1.4 !important;
+  padding: 10px 12px !important;
+  margin: 0 !important;
+}
+
+.anatomy-note {
+  font-size: 0.75em;
+  color: var(--text-muted);
+  margin: 8px 0 0 !important;
+}
+
+.anatomy-body-section {
+  background: rgba(0, 212, 255, 0.04);
+  border-left: 3px solid var(--cyan);
+  border-radius: 0 8px 8px 0;
+  padding: 10px 14px;
+}
+
+.anatomy-body-desc {
+  font-size: 0.7em;
+  color: var(--text-muted);
+  margin: 2px 0 0 !important;
+  line-height: 1.4;
+}
+
+.anatomy-bottom-callout {
+  text-align: center;
+  font-size: 0.75em;
+  margin-top: 0.8em;
+  padding: 10px 16px;
+  background: rgba(0, 212, 255, 0.06);
+  border-radius: 8px;
+}
+
+/* Attendee grid v2 - ultra-compact 4-col */
+.attendee-grid-v2 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 5px 8px;
+  margin-top: 0.3em;
+}
+
+.acard {
+  display: flex;
+  flex-direction: column;
+  padding: 4px 7px;
+  background: rgba(0, 212, 255, 0.04);
+  border-left: 2px solid var(--cyan);
+  border-radius: 0 4px 4px 0;
+  line-height: 1.3;
+}
+
+.aname {
+  font-weight: 700;
+  color: var(--white);
+  font-size: 0.52em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.askills {
+  color: var(--text-muted);
+  font-size: 0.42em;
+  line-height: 1.3;
+}
+
+/* Timer enhancements */
+.timer-container {
+  margin: 0.5em auto;
+}
+
+.timer-progress-track {
+  width: 100%;
+  max-width: 500px;
+  height: 8px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 4px;
+  margin: 0 auto 0.8em;
+  overflow: hidden;
+}
+
+.timer-progress-bar {
+  height: 100%;
+  width: 100%;
+  background: var(--cyan);
+  border-radius: 4px;
+  transition: width 1s linear, background-color 0.5s ease;
+}
+
+.build-timer {
+  font-size: 3em;
+  transition: font-size 0.5s ease, color 0.5s ease;
+}
+
+.build-timer.timer-warning {
+  color: #ffcc00;
+  font-size: 3.5em;
+}
+
+.build-timer.timer-danger {
+  color: #ff3333;
+  font-size: 4em;
+}
+
+.build-timer.timer-done {
+  color: #ff0000;
+  font-size: 4.5em;
+  text-shadow: 0 0 30px rgba(255, 0, 0, 0.6);
+}
+
+/* Lightning demo format */
+.lightning-format {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+}
+
+.lightning-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(0, 212, 255, 0.05);
+  border: 1px solid rgba(0, 212, 255, 0.12);
+  border-radius: 10px;
+  padding: 16px 24px;
+}
+
+.lightning-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  background: var(--cyan);
+  color: var(--navy);
+  font-weight: 800;
+  font-size: 0.9em;
+  border-radius: 50%;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.lightning-label {
+  font-size: 0.9em;
+}
+
+/* Mobile overrides for new components */
+@media (max-width: 600px) {
+  .anatomy-grid { grid-template-columns: 1fr; }
+  .attendee-grid-v2 { grid-template-columns: 1fr 1fr; }
+  .lightning-format { flex-direction: column; align-items: center; gap: 12px; }
+}
 </style>
 </head>
 <body>
@@ -641,39 +847,50 @@ pre code {
 </section>
 
 <!-- ==================== SLIDE 9: Anatomy of a Skill ==================== -->
-<section data-notes="Walk through each section. The description field is how the agent discovers the skill — it's the most important part. Show the full Input/Steps/Output/Rules structure. Emphasize: description must include keywords a user would naturally say. Be specific about when to trigger. Handle edge cases. The folder structure matters — optional directories for scripts, references, assets.">
+<section data-notes="Walk through each section. The description field is how the agent discovers the skill — it's the most important part. Show the full Input/Steps/Output/Rules structure. Emphasize: description must include keywords a user would naturally say.">
   <h2>Anatomy of a Skill</h2>
-  <pre><code><span class="accent">---</span>
-<span class="accent">name:</span> client-follow-up-email
+  <div class="anatomy-grid">
+    <div class="anatomy-left">
+      <div class="anatomy-folder">
+        <div class="anatomy-folder-title">📁 Folder Structure</div>
+        <pre class="anatomy-tree"><code>my-skill/
+├── <span class="accent">SKILL.md</span>       ← required
+├── scripts/       ← optional
+├── references/    ← optional
+└── assets/        ← optional</code></pre>
+      </div>
+      <div class="anatomy-frontmatter">
+        <div class="anatomy-section-label">YAML Frontmatter</div>
+        <pre class="anatomy-code-sm"><code><span class="accent">---</span>
+<span class="accent">name:</span> client-follow-up
 <span class="accent">description:</span> >
-  Formats a professional follow-up email after a
-  client meeting. Triggered when the user says
-  "follow up," "meeting follow-up," or "send a recap."
-<span class="accent">---</span>
-
-# Client Follow-Up Email Formatter
-
-## Input
-Rough notes from a meeting: bullets, voice-to-text,
-or typed notes. Optionally: client name, date, emphasis.
-
-## Steps
-1. **Read notes** → identify key points, decisions, actions
-2. **Draft email** → subject line, summary, action items, next steps
-3. **Polish** → professional tone, 150-250 words, flag ambiguities with [VERIFY]
-
-## Output Format
-Subject: [Specific and actionable]
-Hi [Client], thanks for the conversation on [date]…
-[2-3 sentence summary]
-**Action Items:** 1. [Action] — [Owner] — [Deadline] …
-
-## Rules
-- Don't invent points not in the notes
-- Keep under 250 words
-- Always include a subject line
-- If tone preference given, follow it over defaults</code></pre>
-  <p style="text-align:center; font-size:0.85em; margin-top:0.5em; color:var(--white);"><strong>description</strong> is how the agent discovers your skill — include the exact words a user would say. <span class="muted">Full annotated template in the participant guide.</span></p>
+  Follow-up email after meetings.
+  Triggers on "follow up,"
+  "recap," "meeting notes."
+<span class="accent">---</span></code></pre>
+        <p class="anatomy-note">↑ <strong>description</strong> = how the agent discovers your skill</p>
+      </div>
+    </div>
+    <div class="anatomy-right">
+      <div class="anatomy-body-section">
+        <div class="anatomy-section-label">## Input</div>
+        <p class="anatomy-body-desc">What the user provides — notes, files, URLs, context</p>
+      </div>
+      <div class="anatomy-body-section">
+        <div class="anatomy-section-label">## Steps</div>
+        <p class="anatomy-body-desc">Ordered instructions: 1. Read → 2. Draft → 3. Review → 4. Format</p>
+      </div>
+      <div class="anatomy-body-section">
+        <div class="anatomy-section-label">## Output Format</div>
+        <p class="anatomy-body-desc">Exact template — show what "done" looks like</p>
+      </div>
+      <div class="anatomy-body-section">
+        <div class="anatomy-section-label">## Rules</div>
+        <p class="anatomy-body-desc">Constraints: word limits, tone, edge cases, "never do X"</p>
+      </div>
+    </div>
+  </div>
+  <p class="anatomy-bottom-callout"><span class="accent">Key:</span> Include the exact words a user would say in the description. "follow up," "meeting recap," "weekly update."</p>
 </section>
 
 <!-- ==================== SLIDE 10: The 5 Skill Killers ==================== -->
@@ -720,78 +937,27 @@ Hi [Client], thanks for the conversation on [date]…
 </section>
 
 <!-- ==================== SLIDE 13: Your Skill Suggestions ==================== -->
-<section data-notes="Each person has personalized skill suggestions based on their RSVP profiles and backgrounds. Full list with descriptions in the participant guide.">
-  <h2>Your Skill Suggestions</h2>
-  <p class="muted" style="font-size:0.7em; margin-bottom:0.3em;">Based on your backgrounds. Full details in the participant guide.</p>
-  <div class="attendee-grid">
-    <div class="attendee-card">
-      <div class="name">Alex Kuznetsof</div>
-      <div class="skill-suggestion">Webflow Component Generator · Client Proposal Drafter</div>
-    </div>
-    <div class="attendee-card">
-      <div class="name">Andy Lester</div>
-      <div class="skill-suggestion">Conference Talk Proposal Drafter · Legacy Code Analyzer</div>
-    </div>
-    <div class="attendee-card">
-      <div class="name">Andriy Minenko</div>
-      <div class="skill-suggestion">Report Request Formatter · Data Dictionary Generator</div>
-    </div>
-    <div class="attendee-card">
-      <div class="name">Anil Bhat</div>
-      <div class="skill-suggestion">Data Strategy Brief Generator · Pipeline Health Checker</div>
-    </div>
-    <div class="attendee-card">
-      <div class="name">Syeda Hussain</div>
-      <div class="skill-suggestion">Security Incident Report Formatter · Vulnerability Summary</div>
-    </div>
-    <div class="attendee-card">
-      <div class="name">Jennifer Chuh</div>
-      <div class="skill-suggestion">Shift Handoff Note Formatter · Patient Education Summarizer</div>
-    </div>
-    <div class="attendee-card">
-      <div class="name">Omar Bennani</div>
-      <div class="skill-suggestion">PRD First Draft Generator · A/B Test Result Summarizer</div>
-    </div>
-    <div class="attendee-card">
-      <div class="name">Krissy Crandell</div>
-      <div class="skill-suggestion">Outreach Email Personalizer · Program FAQ Generator</div>
-    </div>
-    <div class="attendee-card">
-      <div class="name">Xavier Estrada</div>
-      <div class="skill-suggestion">Client Onboarding Checklist · Ticket Triage Skill</div>
-    </div>
-    <div class="attendee-card">
-      <div class="name">David Shechtman</div>
-      <div class="skill-suggestion">Deal Screening Memo · IC Memo Drafter</div>
-    </div>
-    <div class="attendee-card">
-      <div class="name">Scott Wolf</div>
-      <div class="skill-suggestion">Regulatory Brief Summarizer · Client Follow-Up Email</div>
-    </div>
-    <div class="attendee-card">
-      <div class="name">Dominic Lopez</div>
-      <div class="skill-suggestion">Daily Operations Check-In · Vendor Communication Drafter</div>
-    </div>
-    <div class="attendee-card">
-      <div class="name">Ethan Hafner</div>
-      <div class="skill-suggestion">Prospect Research Brief · Client Meeting Notes Formatter</div>
-    </div>
-    <div class="attendee-card">
-      <div class="name">Jonathan Kreft</div>
-      <div class="skill-suggestion">Deal Teaser Drafter · CIM Section Generator</div>
-    </div>
-    <div class="attendee-card">
-      <div class="name">Eric Markin</div>
-      <div class="skill-suggestion">Team Weekly Round-Up · Client Review Meeting Prep</div>
-    </div>
-    <div class="attendee-card">
-      <div class="name">Sam Gallo</div>
-      <div class="skill-suggestion">Scenario Framework Structurer · Macro Regime Indicator</div>
-    </div>
-    <div class="attendee-card">
-      <div class="name">Kelly Gross</div>
-      <div class="skill-suggestion">Learning Objectives Writer · Course Outline Generator</div>
-    </div>
+<section data-notes="Each person has personalized skill suggestions based on their RSVP profiles. Full list with descriptions in the participant guide.">
+  <h2 style="font-size:1.8em; margin-bottom:0.4em;">Your Skill Suggestions</h2>
+  <p class="muted" style="font-size:0.55em; margin-bottom:0.3em;">Based on your backgrounds · Full details in participant guide</p>
+  <div class="attendee-grid-v2">
+    <div class="acard"><span class="aname">Alex Kuznetsof</span><span class="askills">Webflow Component Generator · Client Proposal Drafter</span></div>
+    <div class="acard"><span class="aname">Andy Lester</span><span class="askills">Conference Talk Proposal · Legacy Code Analyzer</span></div>
+    <div class="acard"><span class="aname">Andriy Minenko</span><span class="askills">Report Request Formatter · Data Dictionary Generator</span></div>
+    <div class="acard"><span class="aname">Anil Bhat</span><span class="askills">Data Strategy Brief · Pipeline Health Checker</span></div>
+    <div class="acard"><span class="aname">Syeda Hussain</span><span class="askills">Security Incident Report · Vulnerability Summary</span></div>
+    <div class="acard"><span class="aname">Jennifer Chuh</span><span class="askills">Shift Handoff Note Formatter · Patient Education Summary</span></div>
+    <div class="acard"><span class="aname">Omar Bennani</span><span class="askills">PRD First Draft Generator · A/B Test Result Summarizer</span></div>
+    <div class="acard"><span class="aname">Krissy Crandell</span><span class="askills">Outreach Email Personalizer · Program FAQ Generator</span></div>
+    <div class="acard"><span class="aname">Xavier Estrada</span><span class="askills">Client Onboarding Checklist · Ticket Triage Skill</span></div>
+    <div class="acard"><span class="aname">David Shechtman</span><span class="askills">Deal Screening Memo · IC Memo Drafter</span></div>
+    <div class="acard"><span class="aname">Scott Wolf</span><span class="askills">Regulatory Brief Summarizer · Client Follow-Up Email</span></div>
+    <div class="acard"><span class="aname">Dominic Lopez</span><span class="askills">Daily Operations Check-In · Vendor Communication Drafter</span></div>
+    <div class="acard"><span class="aname">Ethan Hafner</span><span class="askills">Prospect Research Brief · Client Meeting Notes Formatter</span></div>
+    <div class="acard"><span class="aname">Jonathan Kreft</span><span class="askills">Deal Teaser Drafter · CIM Section Generator</span></div>
+    <div class="acard"><span class="aname">Eric Markin</span><span class="askills">Team Weekly Round-Up · Client Review Meeting Prep</span></div>
+    <div class="acard"><span class="aname">Sam Gallo</span><span class="askills">Scenario Framework Structurer · Macro Regime Indicator</span></div>
+    <div class="acard"><span class="aname">Kelly Gross</span><span class="askills">Learning Objectives Writer · Course Outline Generator</span></div>
   </div>
 </section>
 
@@ -833,8 +999,13 @@ Hi [Client], thanks for the conversation on [date]…
 <section data-notes="START THE TIMER. Walk around and help people. Direct them to the troubleshooting slide if stuck. Remind them: voice notes work great for getting started.">
   <div class="centered">
     <h2>Build Time</h2>
-    <div class="build-timer" id="timer-display">40:00</div>
-    <button class="timer-btn" id="timer-btn" onclick="startTimer()">Start Timer</button>
+    <div class="timer-container">
+      <div class="timer-progress-track">
+        <div class="timer-progress-bar" id="timer-progress"></div>
+      </div>
+      <div class="build-timer" id="timer-display">40:00</div>
+      <button class="timer-btn" id="timer-btn" onclick="startTimer()">Start Timer</button>
+    </div>
     <ul style="text-align:left; max-width:600px; margin:1em auto 0; font-size:0.85em;">
       <li>Stuck? Record a voice note describing your task</li>
       <li>Use APIs before browsers — more reliable</li>
@@ -846,21 +1017,24 @@ Hi [Client], thanks for the conversation on [date]…
 
 <!-- ==================== SLIDE 16: Lightning Demos ==================== -->
 <section data-notes="Each person gets 60 seconds. Format: what it does, what you learned, what broke. Keep it moving. Celebrate failures — that's where the learning is.">
-  <div class="centered" style="margin-top:1em;">
+  <div class="centered" style="margin-top:0.5em;">
     <h2>Lightning Demos</h2>
-    <p style="font-size:1.4em; color:var(--white); font-weight:500; margin:1em 0;">60 seconds each.</p>
-    <div class="lightning-cols">
-      <div class="col">
-        <ul>
-          <li><strong>What it does</strong></li>
-          <li><strong>What you learned</strong></li>
-          <li><strong>What broke</strong></li>
-        </ul>
+    <p style="font-size:1.4em; color:var(--white); font-weight:600; margin:0.8em 0 1.2em;">60 seconds each</p>
+    <div class="lightning-format">
+      <div class="lightning-item">
+        <span class="lightning-num">1</span>
+        <span class="lightning-label"><strong>What it does</strong></span>
       </div>
-      <div class="col">
-        <p class="muted" style="font-size:0.9em;">Celebrate the failures.<br>That's where the real learning is.</p>
+      <div class="lightning-item">
+        <span class="lightning-num">2</span>
+        <span class="lightning-label"><strong>What you learned</strong></span>
+      </div>
+      <div class="lightning-item">
+        <span class="lightning-num">3</span>
+        <span class="lightning-label"><strong>What broke</strong></span>
       </div>
     </div>
+    <p class="muted" style="font-size:1em; margin-top:1.2em;">Celebrate the failures. That's where the real learning is.</p>
   </div>
 </section>
 
@@ -1007,19 +1181,25 @@ let timerRunning = false;
 function startTimer() {
   const btn = document.getElementById('timer-btn');
   const display = document.getElementById('timer-display');
+  const progress = document.getElementById('timer-progress');
+  const totalDuration = 40 * 60;
   
   if (timerRunning) {
     clearInterval(timerInterval);
     timerRunning = false;
     btn.textContent = 'Start Timer';
     display.textContent = '40:00';
-    display.classList.remove('timer-ended');
+    display.classList.remove('timer-ended', 'timer-warning', 'timer-danger', 'timer-done');
+    display.style.animation = '';
+    display.style.color = '';
+    progress.style.width = '100%';
+    progress.style.backgroundColor = 'var(--cyan)';
     return;
   }
   
   timerRunning = true;
   btn.textContent = 'Reset';
-  let totalSeconds = 40 * 60;
+  let totalSeconds = totalDuration;
   
   timerInterval = setInterval(() => {
     totalSeconds--;
@@ -1027,24 +1207,37 @@ function startTimer() {
     const secs = totalSeconds % 60;
     display.textContent = String(mins).padStart(2, '0') + ':' + String(secs).padStart(2, '0');
     
-    // Pulse when under 5 minutes
+    // Progress bar
+    const pct = (totalSeconds / totalDuration) * 100;
+    progress.style.width = pct + '%';
+    
+    // At 5 min: yellow, pulse
     if (totalSeconds === 300) {
+      progress.style.backgroundColor = '#ffcc00';
+      display.classList.add('timer-warning');
       display.style.animation = 'timerPulse 1s ease-in-out infinite';
-      display.style.color = 'var(--orange)';
     }
     
-    // Flash when under 1 minute
+    // At 1 min: red, flash + pulse
     if (totalSeconds === 60) {
+      progress.style.backgroundColor = '#ff3333';
+      display.classList.remove('timer-warning');
+      display.classList.add('timer-danger');
       display.style.animation = 'timerFlash 0.5s ease-in-out infinite, timerPulse 0.5s ease-in-out infinite';
     }
     
     if (totalSeconds <= 0) {
       clearInterval(timerInterval);
       timerRunning = false;
-      display.textContent = "TIME'S UP!";
+      display.textContent = "TIME\'S UP!";
+      display.classList.remove('timer-warning', 'timer-danger');
+      display.classList.add('timer-done');
       display.style.animation = '';
-      display.classList.add('timer-ended');
+      display.style.animation = 'timerShake 0.6s ease-in-out 3';
+      progress.style.width = '0%';
       btn.textContent = 'Reset';
+      // Shake the whole slide
+      document.querySelector('.timer-container').style.animation = 'timerShake 0.6s ease-in-out 3';
     }
   }, 1000);
 }
