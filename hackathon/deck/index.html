@@ -145,10 +145,10 @@ pre code {
 }
 
 .title-logo {
-  width: 120px;
-  height: 120px;
+  width: auto;
+  height: 80px;
+  max-width: 400px;
   margin-bottom: 0.8em;
-  border-radius: 16px;
 }
 
 /* Center helper */
@@ -398,9 +398,9 @@ pre code {
 
 /* Closing */
 .closing-logo {
-  width: 100px;
-  height: 100px;
-  border-radius: 16px;
+  width: auto;
+  height: 64px;
+  max-width: 320px;
   margin-bottom: 0.5em;
 }
 
@@ -690,6 +690,36 @@ pre code {
   .attendee-grid-v2 { grid-template-columns: 1fr; }
   .lightning-format { flex-direction: column; align-items: center; gap: 12px; }
 }
+
+/* Video background for title/closing slides */
+.video-slide {
+  position: relative;
+  overflow: hidden;
+}
+
+.video-slide video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  transform: translate(-50%, -50%);
+  object-fit: cover;
+  z-index: -2;
+}
+
+.video-slide::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(10, 14, 41, 0.7);
+  z-index: -1;
+}
 </style>
 </head>
 <body>
@@ -699,7 +729,10 @@ pre code {
 
 <!-- ==================== SLIDE 1: Title ==================== -->
 <section data-notes="Welcome everyone. Set the tone: this is hands-on, not lecture. You'll leave tonight with a working AI skill. NLM is about building in public together.">
-  <div class="title-slide">
+  <div class="title-slide video-slide">
+    <video autoplay muted loop playsinline>
+      <source src="bg-video.mp4" type="video/mp4">
+    </video>
     <img src="nlm-logo.png" class="title-logo" alt="NLM Logo">
     <h1>Agent Skills <span class="secondary">Hackathon</span></h1>
     <p class="subtitle">Build Your First AI Skill in 40 Minutes</p>
@@ -1124,7 +1157,10 @@ skills/
 
 <!-- ==================== SLIDE 20: Thank You ==================== -->
 <section data-notes="Thank everyone for showing up. Remind them: the Discord / GitHub is where the community continues. Next event TBD — stay tuned.">
-  <div class="title-slide">
+  <div class="title-slide video-slide">
+    <video autoplay muted loop playsinline>
+      <source src="bg-video.mp4" type="video/mp4">
+    </video>
     <img src="nlm-logo.png" class="closing-logo" alt="NLM Logo">
     <h1>Thank You</h1>
     <p style="font-size:1.2em; color:var(--white);">Go build something useful.</p>
